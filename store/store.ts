@@ -1,14 +1,14 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import userListSlice from "./slices/userListSlice";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import repeats from './slices/repeats';
 
 const rootReducer = combineReducers({
- userList: userListSlice,
-})
+  repeatsList: repeats,
+});
 
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;
 
 const store = configureStore({
-    reducer: rootReducer,
-})
+  reducer: rootReducer,
+});
 
-export default store
+export default store;

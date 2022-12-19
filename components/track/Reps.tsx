@@ -3,12 +3,12 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, textStyle } from '../../constants';
 import { Ionicons, AntDesign, Feather } from '@expo/vector-icons';
 
-export const Weight = () => {
-  const [weightInput, setWeightInput] = useState<string>('');
+export const Reps = () => {
+  const [repsInput, setRepsInput] = useState<string>('');
 
   return (
     <View style={s.container}>
-      <Text style={s.weight}>Weight (kgs)</Text>
+      <Text style={s.reps}>Reps</Text>
       <View style={s.buttonsWrapper}>
         <Feather
           style={s.btn}
@@ -16,8 +16,8 @@ export const Weight = () => {
           size={30}
           color={colors.whiteColor}
           onPress={() => {
-            setWeightInput((prev) => {
-              if (Number(weightInput) < 1) return '';
+            setRepsInput((prev) => {
+              if (Number(repsInput) < 1) return '';
               return (Number(prev) - 0.5).toString();
             });
           }}
@@ -25,19 +25,19 @@ export const Weight = () => {
         <View style={s.inputWrapper}>
           <TextInput
             style={s.input}
-            value={weightInput}
+            value={repsInput}
             onChangeText={(value) => {
-              setWeightInput(value.replace(/[^0-9]/g, ''));
+              setRepsInput(value.replace(/[^0-9]/g, ''));
             }}
             keyboardType='numeric'
           />
           <AntDesign
             style={[
               s.clearInputBtn,
-              !weightInput ? s.isClearInputBtnVisible : null,
+              !repsInput ? s.isClearInputBtnVisible : null,
             ]}
             onPress={() => {
-              setWeightInput('');
+              setRepsInput('');
             }}
             name='closecircleo'
             size={20}
@@ -51,7 +51,7 @@ export const Weight = () => {
           size={30}
           color={colors.whiteColor}
           onPress={() => {
-            setWeightInput((prev) => {
+            setRepsInput((prev) => {
               return (Number(prev) + 0.5).toString();
             });
           }}
@@ -66,7 +66,7 @@ const s = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
   },
-  weight: {
+  reps: {
     paddingBottom: 3,
     borderBottomWidth: 2,
     textAlign: 'center',
